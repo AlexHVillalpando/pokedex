@@ -5,8 +5,9 @@ function AppRouter() {
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />
-			<Route path="/pokedex" element={<Pokedex />}>
-				<Route path=":id" element={<Details />} />
+			<Route path="/pokedex">
+				<Route index element={<Pokedex />} />
+				<Route path=":name" element={<Details />} />
 			</Route>
 		</Routes>
 	);
