@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
 
@@ -53,7 +53,7 @@ function PokemonCard({ url }) {
 					<span>
 						{types?.map((type, index) => {
 							return (
-								<>
+								<Fragment key={type}>
 									{index > 0 ? (
 										<>
 											{' / '}
@@ -62,10 +62,29 @@ function PokemonCard({ url }) {
 									) : (
 										<span>{tipos[type]}</span>
 									)}
-								</>
+								</Fragment>
 							);
 						})}
 					</span>
+					<p>Tipo</p>
+				</div>
+				<div>
+					<div>
+						<span>HP</span>
+						<span>{pokemon?.stats[0]?.base_stat}</span>
+					</div>
+					<div>
+						<span>Ataque</span>
+						<span>{pokemon?.stats[1]?.base_stat}</span>
+					</div>
+					<div>
+						<span>Defensa</span>
+						<span>{pokemon?.stats[2]?.base_stat}</span>
+					</div>
+					<div>
+						<span>Velocidad</span>
+						<span>{pokemon?.stats[5]?.base_stat}</span>
+					</div>
 				</div>
 			</div>
 		</Link>
