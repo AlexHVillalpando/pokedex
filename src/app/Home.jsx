@@ -1,12 +1,47 @@
+import { useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { types, useNameContext } from '../contexts/nameContext';
+
 function Home() {
+	const inputRef = useRef();
+	const [name, dispatch] = useNameContext();
+	const navegar = useNavigate();
+
+	const setName = () => {
+		dispatch({
+			type: types.SET_NAME,
+			payload: inputRef.current.value.trim(),
+		});
+		inputRef.current.value = '';
+		navegar('/pokedex');
+	};
+
+	const clearName = () => {
+		dispatch({
+			type: types.CLEAR_NAME,
+		});
+	};
+
 	return (
 		<div className="home">
-			<h1>POKEDEX</h1>
-			<h2>Bienvenido entrenador</h2>
-			<p>Para comenzar, introduce tu nombre</p>
+			<h2>Bienvenido {name ? <>de nuevo {name}</> : 'entrenador'}</h2>
+
 			<div>
-				<input type="text" placeholder="Tu nombre..." />
-				<button>Comenzar</button>
+				{name ? (
+					<>
+						<p>Continuemos con tu búsqueda del tesoro</p>
+						<p>
+							Ir a tu <Link to="/pokedex">pokedex</Link>
+							<button onClick={clearName}>Salir</button>
+						</p>
+					</>
+				) : (
+					<>
+						<p>Para comenzar, introduce tu nombre</p>
+						<input ref={inputRef} type="text" placeholder="Tu nombre..." />
+						<button onClick={setName}>Comenzar</button>
+					</>
+				)}
 			</div>
 		</div>
 	);
