@@ -27,6 +27,15 @@ function Pokedex() {
 		}
 	};
 
+	const handleTypeFilter = (type) => {};
+
+	const onNext = () => {
+		setPokemons(pokemons?.next);
+	};
+	const onPrev = () => {
+		setPokemons(pokemons?.previous);
+	};
+
 	return (
 		<div className="pokedex">
 			<div className="pokedex__header">
@@ -38,8 +47,17 @@ function Pokedex() {
 			</div>
 			<div className="form">
 				<Search handleSearch={handleSearch} />
-				<Filters />
+				<Filters handleTypeFilter={handleTypeFilter} />
 			</div>
+			<div>
+				<button onClick={onPrev} disabled={!pokemons?.previous}>
+					Anterior
+				</button>
+				<button onClick={onNext} disabled={!pokemons?.next}>
+					Siguiente
+				</button>
+			</div>
+
 			<div className="pokemons">
 				{pokemonUrl ? (
 					<PokemonCard url={pokemonUrl} />

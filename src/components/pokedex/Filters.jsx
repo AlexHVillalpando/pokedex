@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Filters() {
+function Filters({ handleTypeFilter }) {
 	return <div>Filters</div>;
 }
 

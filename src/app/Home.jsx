@@ -13,7 +13,9 @@ function Home() {
 			payload: inputRef.current.value.trim(),
 		});
 		inputRef.current.value = '';
-		navegar('/pokedex');
+		window.setTimeout(() => {
+			navegar('/pokedex');
+		}, 1000);
 	};
 
 	const clearName = () => {
