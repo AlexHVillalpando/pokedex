@@ -1,11 +1,71 @@
 import { useParams, Link } from 'react-router-dom';
+import { useFetch } from '../hooks/useFetch';
+import { useEffect } from 'react';
+import { tipos } from '../utils/helpers';
 
 function Details() {
 	const params = useParams();
+	const [pokemon, setPokemon] = useFetch();
+
+	useEffect(() => {
+		if (params.name) getPokemon();
+	}, [params?.name]);
+
+	const getPokemon = () => {
+		setPokemon(`https://pokeapi.co/api/v2/pokemon/${params?.name}`);
+	};
+
+	const types = pokemon?.types.map((type) => type?.type?.name);
 	return (
 		<div>
 			<Link to="/pokedex"> {'<='} Volver</Link>
-			<h2>Detalles de {params.name}</h2>
+			<div>
+				<div>
+					<img
+						src={pokemon?.sprites?.other['official-artwork']?.front_default}
+						alt={pokemon?.name}
+					/>
+				</div>
+			</div>
+
+			<div>
+				<span>
+					<div># {pokemon?.id?.toString().padStart(3, '0')}</div>
+				</span>
+				<h2>{pokemon?.name}</h2>
+
+				<div>
+					<span>
+						<span>Peso</span>
+						{`${parseInt(pokemon?.weight) / 10} kg`}
+					</span>
+
+					<span>
+						<span>Altura</span>
+						{`${parseInt(pokemon?.height) / 10} m`}
+					</span>
+
+					<div>
+						<div>
+							<h3>Tipo</h3>
+							<div>
+								{types?.map((type) => (
+									<span key={type}>{tipos[type]}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<h3>Habilidades</h3>
+							<div>
+								{pokemon?.abilities?.map((data) => (
+									<span key={data?.ability?.name}>{data?.ability?.name}</span>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

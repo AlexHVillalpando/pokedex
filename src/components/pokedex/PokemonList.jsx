@@ -1,12 +1,12 @@
 import PokemonCard from './PokemonCard';
 
-function PokemonList({ pokemons }) {
+function PokemonList({ pokemons, isFiltering }) {
 	return (
 		<>
 			{pokemons?.map((pokemon) => {
-				const pokemonDivider = pokemon?.url.split('/');
-				const id = pokemonDivider[pokemonDivider.length - 2];
-				return <PokemonCard key={id} url={pokemon.url} />;
+				const pokemonUrl = isFiltering ? pokemon.pokemon.url : pokemon.url;
+				const pokemonName = isFiltering ? pokemon.pokemon.name : pokemon.name;
+				return <PokemonCard key={pokemonName} url={pokemonUrl} />;
 			})}
 		</>
 	);

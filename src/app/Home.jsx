@@ -26,24 +26,38 @@ function Home() {
 
 	return (
 		<div className="home">
-			<h2>Bienvenido {name ? <>de nuevo {name}</> : 'entrenador'}</h2>
-
-			<div>
-				{name ? (
-					<>
-						<p>Continuemos con tu búsqueda del tesoro</p>
-						<p>
-							Ir a tu <Link to="/pokedex">pokedex</Link>
-							<button onClick={clearName}>Salir</button>
-						</p>
-					</>
-				) : (
-					<>
-						<p>Para comenzar, introduce tu nombre</p>
-						<input ref={inputRef} type="text" placeholder="Tu nombre..." />
-						<button onClick={setName}>Comenzar</button>
-					</>
-				)}
+			<div className="home__content">
+				<h2 className="home__title">
+					Bienvenido {name ? <>de nuevo {name}</> : 'entrenador'}
+				</h2>
+				<div>
+					{name ? (
+						<>
+							<p className="home__text">
+								Continuemos con tu búsqueda del tesoro Ir a tu{' '}
+								<Link to="/pokedex" className="home__link">
+									Pokédex
+								</Link>
+							</p>
+							<button onClick={clearName} className="home__btn btn--radius">
+								Salir
+							</button>
+						</>
+					) : (
+						<>
+							<p>Para comenzar, introduce tu nombre</p>
+							<input
+								ref={inputRef}
+								type="text"
+								placeholder="Tu nombre..."
+								className="home__input"
+							/>
+							<button onClick={setName} className="home__btn">
+								Comenzar
+							</button>
+						</>
+					)}
+				</div>
 			</div>
 		</div>
 	);
