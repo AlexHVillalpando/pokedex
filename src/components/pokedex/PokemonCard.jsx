@@ -20,10 +20,10 @@ function PokemonCard({ url }) {
 
 	return (
 		<Link className="poke" to={`/pokedex/${pokemon?.name}`}>
-			<div className={`poke__card type--${types[0]}}`}>
+			<div className={`poke__card type--${types[0]}`}>
 				<div className="poke__card-header">
 					<img
-						src={pokemon?.sprites?.other?.showdown?.front_default}
+						src={pokemon?.sprites?.other['official-artwork']?.front_default}
 						alt={pokemon?.name}
 					/>
 				</div>

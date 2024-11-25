@@ -16,51 +16,55 @@ function Details() {
 	};
 
 	const types = pokemon?.types.map((type) => type?.type?.name);
+
 	return (
 		<div>
 			<Link to="/pokedex"> {'<='} Volver</Link>
-			<div>
-				<div>
-					<img
-						src={pokemon?.sprites?.other['official-artwork']?.front_default}
-						alt={pokemon?.name}
-					/>
-				</div>
-			</div>
-
-			<div>
-				<span>
-					<div># {pokemon?.id?.toString().padStart(3, '0')}</div>
-				</span>
-				<h2>{pokemon?.name}</h2>
-
-				<div>
-					<span>
-						<span>Peso</span>
-						{`${parseInt(pokemon?.weight) / 10} kg`}
-					</span>
-
-					<span>
-						<span>Altura</span>
-						{`${parseInt(pokemon?.height) / 10} m`}
-					</span>
-
-					<div>
-						<div>
-							<h3>Tipo</h3>
-							<div>
-								{types?.map((type) => (
-									<span key={type}>{tipos[type]}</span>
-								))}
-							</div>
-						</div>
+			<div className="details__container">
+				<div className="details__card">
+					<div className="details__card-image">
+						<img
+							src={pokemon?.sprites?.other?.showdown?.front_default}
+							alt={pokemon?.name}
+						/>
+					</div>
+					<div className="details__card-content">
+						<span>
+							<div># {pokemon?.id?.toString().padStart(3, '0')}</div>
+						</span>
+						<h2>{pokemon?.name}</h2>
 
 						<div>
-							<h3>Habilidades</h3>
+							<span>
+								<span>Peso</span>
+								{`${parseInt(pokemon?.weight) / 10} kg`}
+							</span>
+
+							<span>
+								<span>Altura</span>
+								{`${parseInt(pokemon?.height) / 10} m`}
+							</span>
+
 							<div>
-								{pokemon?.abilities?.map((data) => (
-									<span key={data?.ability?.name}>{data?.ability?.name}</span>
-								))}
+								<div>
+									<h3>Tipo</h3>
+									<div>
+										{types?.map((type) => (
+											<span key={type}>{tipos[type]}</span>
+										))}
+									</div>
+								</div>
+
+								<div>
+									<h3>Habilidades</h3>
+									<div>
+										{pokemon?.abilities?.map((data) => (
+											<span key={data?.ability?.name}>
+												{data?.ability?.name}
+											</span>
+										))}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
