@@ -228,7 +228,7 @@ body {
 	transition: height 2s ease-in;
 }
 
-.poke__card-body:hover > .poke__card-stats {
+.poke__card:hover .poke__card-stats {
 	height: auto;
 	visibility: visible;
 	display: grid;
@@ -461,8 +461,16 @@ body {
 	padding: 2em;
 }
 
-.details__card-image {
+.details__card-abilities {
+	display: flex;
+	gap: 1em;
 }
 
-.details__card-content {
+.details__card-ability {
+	border: none;
+	border-radius: 0.5em;
+	padding: 0.1em 0.5em;
+	width: auto;
+	background: white;
+	color: black;
 }

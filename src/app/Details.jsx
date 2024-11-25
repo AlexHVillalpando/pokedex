@@ -57,9 +57,12 @@ function Details() {
 
 								<div>
 									<h3>Habilidades</h3>
-									<div>
+									<div className="details__card-abilities">
 										{pokemon?.abilities?.map((data) => (
-											<span key={data?.ability?.name}>
+											<span
+												className="details__card-ability"
+												key={data?.ability?.name}
+											>
 												{data?.ability?.name}
 											</span>
 										))}
