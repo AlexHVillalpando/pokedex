@@ -18,7 +18,10 @@ function Details() {
 	const types = pokemon?.types.map((type) => type?.type?.name);
 
 	return (
-		<div>
+		<div
+			className="details__component"
+			style={{ backgroundImage: 'url(/home_background.png)' }}
+		>
 			<Link to="/pokedex"> {'<='} Volver</Link>
 			<div className="details__container">
 				<div className="details__card">

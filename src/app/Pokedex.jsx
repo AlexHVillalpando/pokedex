@@ -9,7 +9,7 @@ import PokemonCard from '../components/pokedex/PokemonCard';
 
 function Pokedex() {
 	const [name] = useNameContext();
-	const [pokemons, setPokemons] = useFetch();
+	const [pokemons, setPokemons, loading, error] = useFetch();
 	const [pokemonUrl, setPokemonUrl] = useState(null);
 	const [isFiltering, setIsFiltering] = useState(false);
 
@@ -51,9 +51,13 @@ function Pokedex() {
 	const pokemonsArray = isFiltering ? pokemons?.pokemon : pokemons?.results;
 
 	return (
-		<div className="pokedex">
+		<div
+			className="pokedex"
+			style={{ backgroundImage: 'url(/home_background.png)' }}
+		>
 			<Link to="/"> {'<='} Volver</Link>
 			{/* si agrego algo fuera del container, ocupará el 100% de ancho */}
+			<></>
 			<div className="pokedex__container">
 				<div className="pokedex__header">
 					<p>Bienvenido {name}. Aquí podrás encontrar a tu pokemon favorito</p>
@@ -73,9 +77,14 @@ function Pokedex() {
 
 				<div className="pokedex__cards">
 					{pokemonUrl ? (
-						<PokemonCard url={pokemonUrl} />
+						<PokemonCard url={pokemonUrl} loading={loading} error={error} />
 					) : (
-						<PokemonList pokemons={pokemonsArray} isFiltering={isFiltering} />
+						<PokemonList
+							pokemons={pokemonsArray}
+							isFiltering={isFiltering}
+							loading={loading}
+							error={error}
+						/>
 					)}
 				</div>
 			</div>

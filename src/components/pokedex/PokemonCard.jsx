@@ -3,7 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
 import { tipos } from '../../utils/helpers';
 
-function PokemonCard({ url }) {
+function PokemonCard({ url, loading, error }) {
 	const [pokemon, setPokemon] = useFetch();
 
 	useEffect(() => {

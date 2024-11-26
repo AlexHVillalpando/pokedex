@@ -38,7 +38,6 @@ p {
 
 body {
 	margin: 0;
-	background-image: url('/home_background.png');
 }
 
 .home {
@@ -46,6 +45,10 @@ body {
 	place-content: center;
 	height: 100dvh;
 	color: white;
+
+	background-image: url('/home_background.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .home__card {
@@ -119,6 +122,10 @@ body {
 
 .pokedex {
 	padding: 3em 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center top;
 }
 
 .pokedex__container {
@@ -444,6 +451,13 @@ body {
 }
 .type--shadow .poke__card-header {
 } */
+
+.details__component {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center top;
+}
 
 .details__container {
 	display: grid;
