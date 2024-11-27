@@ -1,6 +1,10 @@
-# React + Vite
+#Proyecto Totinovebedex
 
-Deploy: https://totinovebedex.netlify.app/
+Proyecto de una pokédex personalizada consumiendo la pokeapi de:
+
+https://pokeapi.co/
+
+Despliegue: https://totinovebedex.netlify.app/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
