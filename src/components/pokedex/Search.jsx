@@ -16,14 +16,7 @@ function Search({ handleSearch }) {
 				<BiSearchAlt />
 			</button>
 			<div className="search__input">
-				<input
-					type="text"
-					placeholder="Wooper..."
-					ref={inputRef}
-					// onKeyDown={(e) => {
-					// 	onSearch(e);
-					// }}
-				/>
+				<input type="text" placeholder="Wooper..." ref={inputRef} />
 			</div>
 		</div>
 	);

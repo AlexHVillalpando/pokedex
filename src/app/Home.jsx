@@ -31,11 +31,11 @@ function Home() {
 			<div className="home__card">
 				<div className="home__card-title">
 					<span>
-						<i class="bx bx-library"></i>
+						<i className="bx bx-library"></i>
 					</span>
 					Pokédex
 					<span>
-						<i class="bx bx-sun"></i>
+						<i className="bx bx-sun"></i>
 					</span>
 				</div>
 				<h2 className="home__title">

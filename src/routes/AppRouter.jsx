@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Home, Pokedex, Details } from '../app';
 import ProtectedRoute from './ProtectedRoute';
+import About from '../components/home/About';
 
 function AppRouter() {
 	return (
