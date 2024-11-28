@@ -26,8 +26,6 @@ function Pokedex() {
 
 	const handleSearch = (value) => {
 		if (value) {
-			console.log('errorApi');
-		} else if (value) {
 			setPokemonUrl(`https://pokeapi.co/api/v2/pokemon/${value}`);
 		} else if (!value) {
 			setIsFiltering(false);
@@ -61,14 +59,11 @@ function Pokedex() {
 			style={{ backgroundImage: 'url(/home_background.png)' }}
 		>
 			<div className="pokedex__banner">
-				<div className="pokedex__banner-arrow">
-					<Link to="/">
-						<div className="pokedex__banner-header">
-							<i className="pokedex__banner-header-txt bx bx-user-circle"></i>
-							<p className="pokedex__banner-header-txt">{name}</p>
-						</div>
-					</Link>
-				</div>
+				<Link className="pokedex__banner-arrow" to="/">
+					<i className="pokedex__banner-header-icon bx bx-user-circle"></i>
+					<p className="pokedex__banner-header-txt">{name}</p>
+				</Link>
+
 				<div className="pokedex__form">
 					<Search handleSearch={handleSearch} />
 					<Filters handleTypeFilter={handleTypeFilter} />
