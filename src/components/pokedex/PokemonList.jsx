@@ -1,4 +1,4 @@
-import PokemonCard from './PokemonCard';
+import { PokemonCard } from './PokemonCard';
 
 function PokemonList({ pokemons, isFiltering, loading, error }) {
 	return (
@@ -19,4 +19,4 @@ function PokemonList({ pokemons, isFiltering, loading, error }) {
 	);
 }
 
-export default PokemonList;
+export { PokemonList };

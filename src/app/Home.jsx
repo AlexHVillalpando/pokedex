@@ -8,7 +8,8 @@ function Home() {
 	const [name, dispatch] = useNameContext();
 	const navegar = useNavigate();
 
-	const setName = () => {
+	const setName = (e) => {
+		e.preventDefault();
 		dispatch({
 			type: types.SET_NAME,
 			payload: inputRef.current.value.trim(),
@@ -65,15 +66,17 @@ function Home() {
 						<>
 							<p>Para comenzar, introduce tu nombre</p>
 							<div className="home__inputs">
-								<input
-									ref={inputRef}
-									type="text"
-									placeholder="Tu nombre..."
-									className="home__input"
-								/>
-								<button onClick={setName} className="home__btn">
-									Comenzar
-								</button>
+								<form onSubmit={setName}>
+									<input
+										ref={inputRef}
+										type="text"
+										placeholder="Tu nombre..."
+										className="home__input"
+									/>
+									<button onClick={setName} className="home__btn" type="button">
+										Comenzar
+									</button>
+								</form>
 							</div>
 						</>
 					)}

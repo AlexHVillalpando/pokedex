@@ -35,4 +35,4 @@ function Filters({ handleTypeFilter }) {
 	);
 }
 
-export default Filters;
+export { Filters };

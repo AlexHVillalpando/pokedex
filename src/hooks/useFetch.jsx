@@ -12,7 +12,9 @@ function useFetch() {
 		axios
 			.get(url)
 			.then((res) => setData(res.data))
-			.catch(() => setError('No se han obtenido resultados para tu búsqueda.'))
+			.catch((err) => {
+				setError('No se encuentra este pokemon');
+			})
 			.finally(() => setLoading(false));
 	};
 	return [data, dataFetch, loading, error];
