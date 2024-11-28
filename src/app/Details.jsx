@@ -1,9 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { tipos } from '../utils/helpers';
 import { useNameContext } from '../contexts/nameContext';
 import About from '../components/home/About';
+
+import { FaWeightHanging } from 'react-icons/fa';
+import { TfiRulerAlt2 } from 'react-icons/tfi';
 
 function Details() {
 	const [username] = useNameContext();
@@ -18,7 +21,15 @@ function Details() {
 		setPokemon(`https://pokeapi.co/api/v2/pokemon/${params?.name}`);
 	};
 
-	const types = pokemon?.types.map((type) => type?.type?.name);
+	// const getRegion = `https://pokeapi.co/api/v2/pokemon-form/${
+	// 	params?.forms[0]?.url?.split('/')[6]
+	// }`;
+
+	const types = pokemon?.types?.map((type) => type?.type?.name);
+
+	const pokenum = pokemon?.species?.url
+		?.split('/')
+		[pokemon?.species?.url?.split('/').length - 2].padStart(3, '0');
 
 	return (
 		<div
@@ -36,51 +47,64 @@ function Details() {
 
 			<div className="details__container">
 				<div className="details__card">
-					<div className="details__card-image">
-						<img
-							src={pokemon?.sprites?.other?.showdown?.front_default}
-							alt={pokemon?.name}
-						/>
-					</div>
-					<div className="details__card-content">
-						<span>
-							<div># {pokemon?.id?.toString().padStart(3, '0')}</div>
-						</span>
-						<h2>{pokemon?.name}</h2>
-
-						<div>
-							<span>
-								<span>Peso</span>
-								{`${parseInt(pokemon?.weight) / 10} kg`}
-							</span>
-
-							<span>
-								<span>Altura</span>
-								{`${parseInt(pokemon?.height) / 10} m`}
-							</span>
-
+					<div className="details__card-header">
+						<div className="details__card-header-pokeid">
+							<div className="details__card-header-num"># {pokenum}</div>
+							<div className="details__card-header-name">
+								{pokemon?.species?.name}
+							</div>
+						</div>
+						<div className="details__card-region">region</div>
+						<div className="details__card-header-type">
 							<div>
-								<div>
-									<h3>Tipo</h3>
-									<div>
-										{types?.map((type) => (
-											<span key={type}>{tipos[type]}</span>
-										))}
+								{types?.map((type) => (
+									<span key={type}>{tipos[type]}</span>
+								))}
+							</div>
+						</div>
+					</div>
+
+					<div className="details__card-content">
+						<div className="details__card-image">
+							<img
+								src={pokemon?.sprites?.other?.showdown?.front_default}
+								alt={pokemon?.name}
+							/>
+						</div>
+
+						<div className="details__card-leftbar">
+							<div className="details__card-leftbar-weight">
+								<div className="physics">
+									<div className="physics-weight">
+										<div className="physics-icon">
+											<FaWeightHanging />
+										</div>
+										<div className="physics-quantity">
+											{`${parseInt(pokemon?.weight) / 10} kg`}
+										</div>
+									</div>
+									<div className="physics-height">
+										<div className="physics-icon">
+											<TfiRulerAlt2 />
+										</div>
+										<div className="physics-quantity">
+											{`${parseInt(pokemon?.height) / 10} m`}
+										</div>
 									</div>
 								</div>
+							</div>
 
-								<div>
-									<h3>Habilidades</h3>
-									<div className="details__card-abilities">
-										{pokemon?.abilities?.map((data) => (
-											<span
-												className="details__card-ability"
-												key={data?.ability?.name}
-											>
-												{data?.ability?.name}
-											</span>
-										))}
-									</div>
+							<div>
+								<h3>Habilidades</h3>
+								<div className="details__card-abilities">
+									{pokemon?.abilities?.map((data) => (
+										<span
+											className="details__card-ability"
+											key={data?.ability?.name}
+										>
+											{data?.ability?.name}
+										</span>
+									))}
 								</div>
 							</div>
 						</div>

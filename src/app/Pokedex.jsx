@@ -96,7 +96,7 @@ function Pokedex() {
 					) : (
 						<>
 							{pokemonUrl ? (
-								<PokemonCard url={pokemonUrl} loading={loading} error={error} />
+								<PokemonCard url={pokemonUrl} />
 							) : (
 								<PokemonList
 									pokemons={pokemonsArray}
