@@ -60,7 +60,7 @@ function Pokedex() {
 		>
 			<div className="pokedex__banner">
 				<Link className="pokedex__banner-arrow" to="/">
-					<i className="pokedex__banner-header-icon bx bx-user-circle"></i>
+					<i className="pokedex__banner-header-icon bx bx-user-circle bx-tada-hover"></i>
 					<p className="pokedex__banner-header-txt">{name}</p>
 				</Link>
 
@@ -71,6 +71,7 @@ function Pokedex() {
 				<About />
 			</div>
 			{/* si agrego algo fuera del container, ocupará el 100% de ancho */}
+
 			<div className="pokedex__container">
 				<div className="nav__bar">
 					<button

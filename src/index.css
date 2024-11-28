@@ -146,12 +146,15 @@ body {
 	backdrop-filter: brightness(1) blur(2px);
 	box-shadow: 0 0 5px 0px #2c363b75;
 	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 6;
 }
 
 .pokedex__banner-arrow {
 	display: flex;
 	gap: 0.2em;
-	width: 100px;
+	width: auto;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -159,6 +162,11 @@ body {
 }
 
 .bx-user-circle {
+	font-size: x-large;
+	padding: 0;
+}
+
+.bxs-left-arrow-circle {
 	font-size: x-large;
 	padding: 0;
 }

@@ -2,8 +2,11 @@ import { useParams, Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { useEffect } from 'react';
 import { tipos } from '../utils/helpers';
+import { useNameContext } from '../contexts/nameContext';
+import About from '../components/home/About';
 
 function Details() {
+	const [username] = useNameContext();
 	const params = useParams();
 	const [pokemon, setPokemon] = useFetch();
 
@@ -22,7 +25,15 @@ function Details() {
 			className="details__component"
 			style={{ backgroundImage: 'url(/home_background.png)' }}
 		>
-			<Link to="/pokedex"> {'<='} Volver</Link>
+			<div className="pokedex__banner">
+				<Link className="pokedex__banner-arrow" to="/pokedex">
+					<i className="pokedex__banner-header-icon bx bxs-left-arrow-circle bx-tada-hover"></i>
+					<p className="pokedex__banner-header-txt">Atrás</p>
+				</Link>
+
+				<About />
+			</div>
+
 			<div className="details__container">
 				<div className="details__card">
 					<div className="details__card-image">
