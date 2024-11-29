@@ -88,21 +88,15 @@ function Pokedex() {
 				</div>
 
 				<div className="pokedex__cards">
-					{null ? (
-						console.log('errorApi')
+					{pokemonUrl ? (
+						<PokemonCard url={pokemonUrl} />
 					) : (
-						<>
-							{pokemonUrl ? (
-								<PokemonCard url={pokemonUrl} />
-							) : (
-								<PokemonList
-									pokemons={pokemonsArray}
-									isFiltering={isFiltering}
-									loading={loading}
-									error={error}
-								/>
-							)}
-						</>
+						<PokemonList
+							pokemons={pokemonsArray}
+							isFiltering={isFiltering}
+							loading={loading}
+							error={error}
+						/>
 					)}
 				</div>
 				<div className="nav__bar">

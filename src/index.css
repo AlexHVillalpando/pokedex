@@ -129,6 +129,7 @@ body {
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center top;
+	min-height: 100dvh;
 }
 
 .pokedex__container {

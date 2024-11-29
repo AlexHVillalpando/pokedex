@@ -9,6 +9,7 @@ function useFetch() {
 
 	const dataFetch = (url) => {
 		setLoading(true);
+		setError(null);
 		axios
 			.get(url)
 			.then((res) => setData(res.data))
