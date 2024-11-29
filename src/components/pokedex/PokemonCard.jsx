@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
-import { tipos } from '../../utils/helpers';
+import { tipos } from '../../utils/helpersTypes';
 import Error from './Error';
 
 function PokemonCard({ url }) {

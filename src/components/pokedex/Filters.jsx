@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useFetch } from '../../hooks/useFetch';
-import { tipos } from '../../utils/helpers';
+import { tipos } from '../../utils/helpersTypes';
 
 function Filters({ handleTypeFilter }) {
 	const [types, setTypes] = useFetch();
