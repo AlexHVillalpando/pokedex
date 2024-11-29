@@ -1,6 +1,5 @@
-import { useState } from 'react';
-
 import axios from 'axios';
+import { useState } from 'react';
 
 function useFetch() {
 	const [data, setData] = useState(null);
@@ -14,7 +13,13 @@ function useFetch() {
 			.get(url)
 			.then((res) => setData(res.data))
 			.catch((err) => {
-				setError('No se encuentra este pokemon');
+				if (err.response && err.response.status === 404) {
+					setError('No se ha encontrado');
+					console.log(error);
+				} else {
+					setError('Error al cargar los datos');
+					console.log(error);
+				}
 			})
 			.finally(() => setLoading(false));
 	};

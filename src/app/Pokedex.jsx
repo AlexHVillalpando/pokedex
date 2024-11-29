@@ -62,7 +62,7 @@ function Pokedex() {
 				</Link>
 
 				<div className="pokedex__form">
-					<Search handleSearch={handleSearch} />
+					<Search handleSearch={handleSearch} loading={loading} error={error} />
 					<Filters handleTypeFilter={handleTypeFilter} />
 				</div>
 				<About />
@@ -91,12 +91,7 @@ function Pokedex() {
 					{pokemonUrl ? (
 						<PokemonCard url={pokemonUrl} />
 					) : (
-						<PokemonList
-							pokemons={pokemonsArray}
-							isFiltering={isFiltering}
-							loading={loading}
-							error={error}
-						/>
+						<PokemonList pokemons={pokemonsArray} isFiltering={isFiltering} />
 					)}
 				</div>
 				<div className="nav__bar">

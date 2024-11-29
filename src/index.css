@@ -304,15 +304,22 @@ body {
 
 /*Pokedex List*/
 .pokedex__cards {
-	display: grid;
+	/* display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	 */
+	display: flex;
+	width: auto;
+	align-items: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 1.25em;
 }
 
 /*Cards*/
 
 .poke {
-	max-width: 320px;
+	max-width: 300px;
 	width: 100%;
 	display: block;
 }
