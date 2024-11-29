@@ -363,12 +363,12 @@ body {
 	padding: 0 1em 2em;
 	max-height: 5em;
 	overflow: hidden;
-	transition: max-height 0.2s ease-out;
+	transition: max-height 0.1s ease-out;
 }
 
 .poke__card:hover .poke__card-body {
 	max-height: 500px;
-	transition: max-height 1s ease-in;
+	transition: max-height 0.5s ease-in;
 }
 
 .poke__card-name {
