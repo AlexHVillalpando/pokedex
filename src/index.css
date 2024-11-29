@@ -196,6 +196,7 @@ body {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
+	padding: 0.2em 0 0 0;
 }
 
 .search {
@@ -616,6 +617,11 @@ body {
 	text-transform: capitalize;
 }
 
+.details__card-footer {
+	border-top: 1px solid white;
+	padding: 0.5em 0 0 0;
+}
+
 .details__card-footer-genus {
 	font-size: small;
 	font-weight: 200;
@@ -674,6 +680,7 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	margin-top: 0.5em;
 }
 
 .details__card-rightbar {

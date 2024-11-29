@@ -3,7 +3,8 @@ import { BiSearchAlt } from 'react-icons/bi';
 
 function Search({ handleSearch }) {
 	const inputRef = useRef();
-	const onSearch = () => {
+	const onSearch = (e) => {
+		e.preventDefault();
 		handleSearch(inputRef.current.value.toLowerCase().trim());
 	};
 

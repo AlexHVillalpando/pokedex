@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
-import { useParams } from 'react-router-dom';
-import { regiones } from '../../utils/helpersRegions';
 
 function Genus({ pokemon }) {
 	const [genus, setGenus] = useFetch();
+	const [pokegen, setPokegen] = useState([]);
 
 	const getGenus = () => {
 		setGenus(
@@ -15,15 +14,25 @@ function Genus({ pokemon }) {
 	};
 
 	useEffect(() => {
-		if (pokemon) getGenus();
+		if (pokemon) {
+			getGenus();
+		}
 	}, [pokemon]);
 
-	const pokeID =
-		pokemon?.forms[0]?.url?.split('/')[
-			pokemon?.forms[0]?.url?.split('/').length - 2
-		];
+	useEffect(() => {
+		let inte = [];
 
-	return <>{genus?.genera[5]?.genus}</>;
+		for (let i = 0; i < genus?.genera?.length; i++) {
+			if (genus?.genera[i]?.language?.name === 'es') {
+				inte.push(genus?.genera[i]?.genus);
+			} else if (genus?.genera[i]?.language?.name === 'en') {
+				inte.push(genus?.genera[i]?.genus);
+			}
+		}
+		setPokegen(inte);
+	}, [genus]);
+
+	return <>{pokegen[0]}</>;
 }
 
 export default Genus;
