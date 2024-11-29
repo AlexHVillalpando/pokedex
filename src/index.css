@@ -90,13 +90,18 @@ body {
 .home__btn {
 	background-color: rgb(176, 119, 119);
 	border: transparent;
-	border-radius: 0 4px 4px 0;
 	padding: 0.5em 1em;
 	color: #fff;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out;
+	display: flex;
+	gap: 0.5em;
 }
-
+.home__btn-content {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
 .btn--radius {
 	border-radius: 4px;
 }
@@ -108,11 +113,6 @@ body {
 .home__welcome-btns {
 	display: flex;
 	justify-content: space-between;
-}
-
-.home__btn-content {
-	display: flex;
-	vertical-align: center;
 }
 
 .home__link {
@@ -151,7 +151,7 @@ body {
 
 	z-index: 6;
 
-	border-radius: 0 0 0.5em 0.6em;
+	border-radius: 0 0 0.6em 0.6em;
 
 	background-color: rgba(255, 255, 255, 0.496);
 	-webkit-backdrop-filter: brightness(1) blur(2px);
@@ -323,12 +323,12 @@ body {
 	overflow: hidden;
 	cursor: pointer;
 	color: black;
-	background-color: white;
+	background: linear-gradient(rgba(255, 255, 255, 0), white);
 }
 
 .poke__card:hover {
 	color: white;
-	background-color: var(--card_translucid_background);
+	background: var(--card_translucid_background);
 	-webkit-backdrop-filter: brightness(1) blur(2px);
 	backdrop-filter: brightness(1) blur(2px);
 }
