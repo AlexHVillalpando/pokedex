@@ -333,13 +333,7 @@ body {
 	backdrop-filter: brightness(1) blur(2px);
 }
 .poke__card-stats {
-	height: 0;
-	transition: height 2s ease-in;
-}
-
-.poke__card:hover .poke__card-stats {
 	height: auto;
-	visibility: visible;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
@@ -367,6 +361,14 @@ body {
 
 .poke__card-body {
 	padding: 0 1em 2em;
+	max-height: 5em;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.poke__card:hover .poke__card-body {
+	max-height: 500px;
+	transition: max-height 1s ease-in;
 }
 
 .poke__card-name {
