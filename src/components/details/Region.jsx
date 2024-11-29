@@ -3,9 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { regiones } from '../../utils/helpersRegions';
 
-function Region({ pokemon }) {
-	const [region, setRegion] = useFetch();
-
+function Region({ pokemon, region, setRegion }) {
 	const getRegion = () => {
 		setRegion(`https://pokeapi.co/api/v2/pokemon-form/${pokeID}`);
 	};

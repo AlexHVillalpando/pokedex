@@ -54,10 +54,7 @@ function Pokedex() {
 	const pokemonsArray = isFiltering ? pokemons?.pokemon : pokemons?.results;
 
 	return (
-		<div
-			className="pokedex"
-			style={{ backgroundImage: 'url(/home_background.png)' }}
-		>
+		<div className="pokedex">
 			<div className="pokedex__banner">
 				<Link className="pokedex__banner-arrow" to="/">
 					<i className="pokedex__banner-header-icon bx bx-user-circle bx-tada-hover"></i>

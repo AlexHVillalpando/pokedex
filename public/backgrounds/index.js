@@ -1,0 +1,11 @@
+export { default as kanto } from './kanto.png';
+export { default as johto } from './johto.png';
+export { default as hoenn } from './hoenn.png';
+export { default as sinnoh } from './sinnoh.png';
+export { default as teselia } from './teselia.png';
+export { default as kalos } from './kalos.png';
+export { default as alola } from './alola.png';
+export { default as galar } from './galar.png';
+export { default as hisui } from './hisui.png';
+export { default as paldea } from './paldea.png';
+export { default as noroteo } from './noroteo.png';

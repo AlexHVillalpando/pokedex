@@ -13,12 +13,28 @@ import Entry from '../components/details/Entry';
 import Genus from '../components/details/Genus';
 import { HiMiniSparkles } from 'react-icons/hi2';
 
+import { regiones } from '../utils/helpersRegions.js';
+
+import {
+	kanto,
+	johto,
+	hoenn,
+	sinnoh,
+	teselia,
+	kalos,
+	alola,
+	galar,
+	hisui,
+	paldea,
+	noroteo,
+} from '../../public/backgrounds/index.js';
+
 function Details() {
-	const [username] = useNameContext();
 	const params = useParams();
 	const [pokemon, setPokemon] = useFetch();
 	const [isShiny, setIsShiny] = useState(false);
-	console.log(isShiny);
+	const [region, setRegion] = useFetch();
+
 	useEffect(() => {
 		if (params.name) getPokemon();
 	}, [params?.name]);
@@ -29,7 +45,6 @@ function Details() {
 
 	const handleShiny = () => {
 		setIsShiny(!isShiny);
-		console.log(isShiny);
 	};
 
 	const types = pokemon?.types?.map((type) => type?.type?.name);
@@ -38,10 +53,28 @@ function Details() {
 		?.split('/')
 		[pokemon?.species?.url?.split('/').length - 2].padStart(3, '0');
 
+	const backgrounds = {
+		kanto: kanto,
+		johto: johto,
+		hoenn: hoenn,
+		sinnoh: sinnoh,
+		teselia: teselia,
+		kalos: kalos,
+		alola: alola,
+		galar: galar,
+		hisui: hisui,
+		paldea: paldea,
+		noroteo: noroteo,
+	};
+
 	return (
 		<div
 			className="details__component"
-			style={{ backgroundImage: 'url(/home_background.png)' }}
+			style={{
+				backgroundImage: `url(../..${
+					backgrounds[regiones[region?.version_group?.name]]
+				})`,
+			}}
 		>
 			<div className="pokedex__banner">
 				<Link className="pokedex__banner-arrow" to="/pokedex">
@@ -62,7 +95,7 @@ function Details() {
 							</div>
 						</div>
 						<div className="details__card--header-region">
-							<Region pokemon={pokemon} />
+							<Region pokemon={pokemon} region={region} setRegion={setRegion} />
 						</div>
 						<div className="details__card-header-type">
 							<div>

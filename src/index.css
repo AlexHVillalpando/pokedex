@@ -45,7 +45,7 @@ body {
 	height: 100dvh;
 	color: white;
 
-	background-image: url('/general_background.jpg');
+	background-image: url('/background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -124,6 +124,7 @@ body {
 
 .pokedex {
 	padding: 0 0 3em;
+	background-image: url('/pokedex-bg.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -566,6 +567,9 @@ body {
 	border-radius: 1em;
 	background-color: var(--card_translucid_background);
 	color: white;
+	-webkit-backdrop-filter: brightness(1) blur(2px);
+	backdrop-filter: brightness(1) blur(2px);
+	box-shadow: 0 0 5px 0px #2c363b75;
 	margin: 0;
 	padding: 0 1em 1em 1em;
 }
@@ -657,6 +661,7 @@ body {
 	color: white;
 	margin: 0;
 	padding: 0 0.1em;
+	cursor: pointer;
 }
 
 .details__card-content {
