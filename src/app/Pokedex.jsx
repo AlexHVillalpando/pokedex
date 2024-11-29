@@ -9,6 +9,7 @@ import {
 	PokemonCard,
 } from '../components/pokedex';
 import About from '../components/home/About';
+import { ImGift } from 'react-icons/im';
 
 function Pokedex() {
 	const [name] = useNameContext();
@@ -68,49 +69,63 @@ function Pokedex() {
 				<About />
 			</div>
 			{/* si agrego algo fuera del container, ocupará el 100% de ancho */}
+			{loading ? (
+				<div className="loader__container">
+					<img className="loader" src="/loading.gif" alt="loading" />
+				</div>
+			) : error ? (
+				<div className="error__container">
+					<img src="/error.png" alt="error" />
+				</div>
+			) : (
+				<>
+					<div className="pokedex__container">
+						<div className="nav__bar">
+							<button
+								className="nav__bar--btn prev"
+								onClick={onPrev}
+								disabled={!pokemons?.previous}
+							>
+								Anterior
+							</button>
+							<button
+								className="nav__bar--btn next"
+								onClick={onNext}
+								disabled={!pokemons?.next}
+							>
+								Siguiente
+							</button>
+						</div>
 
-			<div className="pokedex__container">
-				<div className="nav__bar">
-					<button
-						className="nav__bar--btn prev"
-						onClick={onPrev}
-						disabled={!pokemons?.previous}
-					>
-						Anterior
-					</button>
-					<button
-						className="nav__bar--btn next"
-						onClick={onNext}
-						disabled={!pokemons?.next}
-					>
-						Siguiente
-					</button>
-				</div>
-
-				<div className="pokedex__cards">
-					{pokemonUrl ? (
-						<PokemonCard url={pokemonUrl} />
-					) : (
-						<PokemonList pokemons={pokemonsArray} isFiltering={isFiltering} />
-					)}
-				</div>
-				<div className="nav__bar">
-					<button
-						className="nav__bar--btn prev"
-						onClick={onPrev}
-						disabled={!pokemons?.previous}
-					>
-						Anterior
-					</button>
-					<button
-						className="nav__bar--btn next"
-						onClick={onNext}
-						disabled={!pokemons?.next}
-					>
-						Siguiente
-					</button>
-				</div>
-			</div>
+						<div className="pokedex__cards">
+							{pokemonUrl ? (
+								<PokemonCard url={pokemonUrl} />
+							) : (
+								<PokemonList
+									pokemons={pokemonsArray}
+									isFiltering={isFiltering}
+								/>
+							)}
+						</div>
+						<div className="nav__bar">
+							<button
+								className="nav__bar--btn prev"
+								onClick={onPrev}
+								disabled={!pokemons?.previous}
+							>
+								Anterior
+							</button>
+							<button
+								className="nav__bar--btn next"
+								onClick={onNext}
+								disabled={!pokemons?.next}
+							>
+								Siguiente
+							</button>
+						</div>
+					</div>
+				</>
+			)}
 		</div>
 	);
 }

@@ -69,6 +69,11 @@ body {
 	justify-content: space-between;
 }
 
+.bx-library,
+.bx-sun {
+	color: white;
+}
+
 .home__title,
 .home__text {
 	margin-bottom: 0.5em;
@@ -130,6 +135,44 @@ body {
 	background-size: cover;
 	background-position: center top;
 	min-height: 100dvh;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader__container img {
+	display: flex;
+	width: 512px;
+	height: 512px;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.error__container img {
+	display: flex;
+	width: 512px;
+	height: 512px;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .pokedex__container {
@@ -186,8 +229,9 @@ body {
 	align-items: center;
 }
 
-.bx {
-	color: #000;
+.bxl-github,
+.bx-user-circle {
+	color: black;
 }
 
 .pokedex__form {
