@@ -13,7 +13,12 @@ function Search({ handleSearch, loading, error }) {
 	return (
 		<div className="search__container">
 			<form onSubmit={onSearch} className="search">
-				<button className="search__btn" type="submit" onClick={onSearch}>
+				<button
+					className="search__btn"
+					type="submit"
+					onClick={onSearch}
+					name="input_search_button"
+				>
 					<BiSearchAlt />
 				</button>
 				<div className="search__input">
@@ -22,6 +27,7 @@ function Search({ handleSearch, loading, error }) {
 						type="text"
 						className="search__input-box"
 						placeholder="Wooper..."
+						name="input__search"
 					/>
 				</div>
 			</form>

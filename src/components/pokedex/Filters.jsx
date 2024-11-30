@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useFetch } from '../../hooks/useFetch';
+
 import { tipos } from '../../utils/helpersTypes';
 
 function Filters({ handleTypeFilter }) {
@@ -18,6 +19,7 @@ function Filters({ handleTypeFilter }) {
 	return (
 		<div className="select">
 			<select
+				name="select_input"
 				className="select__input"
 				ref={selectRef}
 				onChange={() => {

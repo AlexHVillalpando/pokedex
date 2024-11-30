@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { types, useNameContext } from '../contexts/nameContext';
+
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 
 function Home() {
@@ -72,6 +73,7 @@ function Home() {
 										type="text"
 										placeholder="Tu nombre..."
 										className="home__input"
+										name="input_home"
 									/>
 									<button onClick={setName} className="home__btn" type="button">
 										Comenzar

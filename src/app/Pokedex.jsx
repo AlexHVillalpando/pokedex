@@ -9,7 +9,6 @@ import {
 	PokemonCard,
 } from '../components/pokedex';
 import About from '../components/home/About';
-import { ImGift } from 'react-icons/im';
 
 function Pokedex() {
 	const [name] = useNameContext();

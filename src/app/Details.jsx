@@ -1,13 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { useEffect, useState } from 'react';
-import { useNameContext } from '../contexts/nameContext';
 import About from '../components/home/About';
 
 import { FaWeightHanging } from 'react-icons/fa';
 import { TfiRulerAlt2 } from 'react-icons/tfi';
 import { Entry, FullName, Genus, Region } from '../components/details/index.js';
 import { HiMiniSparkles } from 'react-icons/hi2';
+import { CgGenderMale } from 'react-icons/cg';
+import { CgGenderFemale } from 'react-icons/cg';
 
 import { regiones } from '../utils/helpersRegions.js';
 import { tipos } from '../utils/helpersTypes';
@@ -29,11 +30,14 @@ import {
 function Details() {
 	const params = useParams();
 	const [pokemon, setPokemon] = useFetch();
-	const [isShiny, setIsShiny] = useState(false);
 	const [region, setRegion] = useFetch();
+	const [isShiny, setIsShiny] = useState(false);
+	const [isFemale, setIsFemale] = useState(false);
 
 	useEffect(() => {
-		if (params.name) getPokemon();
+		if (params.name) {
+			getPokemon();
+		}
 	}, [params?.name]);
 
 	const getPokemon = () => {
@@ -42,6 +46,10 @@ function Details() {
 
 	const handleShiny = () => {
 		setIsShiny(!isShiny);
+	};
+
+	const handleSex = () => {
+		setIsFemale(!isFemale);
 	};
 
 	const types = pokemon?.types?.map((type) => type?.type?.name);
@@ -97,7 +105,9 @@ function Details() {
 						<div className="details__card-header-type">
 							<div>
 								{types?.map((type) => (
-									<span key={type}>{tipos[type]}</span>
+									<span className="details__card--header-types" key={type}>
+										{tipos[type]}
+									</span>
 								))}
 							</div>
 						</div>
@@ -115,8 +125,67 @@ function Details() {
 											<HiMiniSparkles />
 										</button>
 									</div>
+
+									<div className="details__card-image-sex">
+										{pokemon?.sprites?.back_female ? (
+											<>
+												<button
+													className="details__card-image-sex-btn"
+													onClick={handleSex}
+												>
+													{isFemale ? (
+														<CgGenderFemale size={18} />
+													) : (
+														<CgGenderMale size={18} />
+													)}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
+									</div>
+
 									<div className="details__card-image-sprite">
-										{isShiny ? (
+										{isFemale ? (
+											isShiny ? (
+												<>
+													{pokemon?.sprites?.other?.showdown
+														?.front_shiny_female ? (
+														<img
+															src={
+																pokemon?.sprites?.other?.showdown
+																	?.front_shiny_female
+															}
+															alt={pokemon?.name}
+														/>
+													) : (
+														<img
+															src={
+																pokemon?.sprites?.other?.home
+																	?.front_shiny_female
+															}
+															alt={pokemon?.name}
+														/>
+													)}
+												</>
+											) : (
+												<>
+													{pokemon?.sprites?.other?.showdown?.front_female ? (
+														<img
+															src={
+																pokemon?.sprites?.other?.showdown?.front_female
+															}
+															alt={pokemon?.name}
+														/>
+													) : (
+														<img
+															src={pokemon?.sprites?.other?.home?.front_female}
+															alt={pokemon?.name}
+														/>
+													)}
+												</>
+											)
+										) : isShiny ? (
 											<>
 												{pokemon?.sprites?.other?.showdown?.front_shiny ? (
 													<img

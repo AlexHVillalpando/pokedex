@@ -625,7 +625,7 @@ body {
 	-webkit-backdrop-filter: brightness(1) blur(2px);
 	backdrop-filter: brightness(1) blur(2px);
 	box-shadow: 0 0 5px 0px #2c363b75;
-	margin: 0;
+	margin: 0 1em 1em 1em;
 	padding: 0 1em 1em 1em;
 }
 
@@ -669,6 +669,11 @@ body {
 	text-transform: capitalize;
 }
 
+.details__card--header-types {
+	margin: 0;
+	padding: 0 0.2em;
+}
+
 .details__card-footer {
 	border-top: 1px solid white;
 	padding: 0.5em 0 0 0;
@@ -690,7 +695,7 @@ body {
 	font-weight: 400;
 }
 .details__card-leftbar {
-	width: 130px;
+	min-width: 130px;
 }
 
 .details__card-image {
@@ -705,6 +710,10 @@ body {
 	height: 100%;
 }
 
+.details__card-image-sprite {
+	height: auto;
+}
+
 .details__card-image-shiny {
 	position: absolute;
 	top: 0;
@@ -713,7 +722,16 @@ body {
 	padding: 0;
 }
 
-.details__card-image-shiny-btn {
+.details__card-image-sex {
+	position: absolute;
+	top: 90%;
+	right: 45%;
+	margin: 0;
+	padding: 0;
+}
+
+.details__card-image-shiny-btn,
+.details__card-image-sex-btn {
 	background-color: #ffffff00;
 	border: transparent;
 	color: white;

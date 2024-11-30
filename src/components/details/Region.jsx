@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { useFetch } from '../../hooks/useFetch';
-import { useParams } from 'react-router-dom';
 import { regiones } from '../../utils/helpersRegions';
 
 function Region({ pokemon, region, setRegion }) {

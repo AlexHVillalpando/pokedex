@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { tipos } from '../../utils/helpersTypes';
 
 function PokemonCard({ url }) {
-	const [pokemon, setPokemon, loading, error] = useFetch();
+	const [pokemon, setPokemon, loading] = useFetch();
 
 	useEffect(() => {
 		if (url) getPokemon();
