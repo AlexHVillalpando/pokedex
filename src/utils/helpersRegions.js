@@ -3,7 +3,7 @@ export const regiones = {
 	'gold-silver': 'johto',
 	'ruby-sapphire': 'hoenn',
 	emerald: 'hoenn',
-	'pearl-diamond': 'sinnoh',
+	'diamond-pearl': 'sinnoh',
 	platinum: 'sinnoh',
 	'black-white': 'teselia',
 	'black-2-white-2': 'teselia',

@@ -27,7 +27,7 @@ import {
 	hisui,
 	paldea,
 	noroteo,
-} from '../assets/backgrounds/index.js';
+} from '../assets/img/backgrounds/index.js';
 
 function Details() {
 	const params = useParams();
@@ -71,9 +71,9 @@ function Details() {
 		<div
 			className="details__component"
 			style={{
-				backgroundImage: `url(${
-					backgrounds[regiones[region?.version_group?.name]]
-				})`,
+				backgroundImage: `url(
+			${backgrounds[regiones[region?.version_group?.name]]}
+			 	)`,
 			}}
 		>
 			<div className="pokedex__banner">
