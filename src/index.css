@@ -629,11 +629,6 @@ body {
 	padding: 0 1em 1em 1em;
 }
 
-.details__card-image {
-	margin: 0;
-	padding: 1em;
-}
-
 .details__card-header {
 	display: flex;
 	justify-content: space-between;
@@ -749,9 +744,10 @@ body {
 .details__card-content-top {
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
+	align-items: flex-start;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
+	height: auto;
 }
 
 .details__card-rightbar {
@@ -773,6 +769,19 @@ body {
 .physics-icon {
 	margin: 0 0.5em 0 0.2em;
 	padding: 0;
+}
+
+.details__card-rightbar-abilities-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.details__card-rightbar-weight {
+	display: flex;
+}
+
+.abilities-title {
+	display: flex;
 }
 
 .details__card-abilities {

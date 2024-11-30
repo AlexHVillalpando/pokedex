@@ -241,8 +241,8 @@ function Details() {
 									</div>
 								</div>
 
-								<div>
-									<h3>Habilidades</h3>
+								<div className="details__card-rightbar-abilities-container">
+									<h3 className="abilities-title">Habilidades</h3>
 									<div className="details__card-abilities">
 										{pokemon?.abilities?.map((data) => (
 											<span
