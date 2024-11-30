@@ -3,7 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { regiones } from '../../utils/helpersRegions';
 
-function Region({ pokemon }) {
+function FullName({ pokemon }) {
 	const [fullName, setFullName] = useFetch();
 
 	const getFullName = () => {
@@ -22,4 +22,4 @@ function Region({ pokemon }) {
 	return <>{fullName?.name}</>;
 }
 
-export default Region;
+export { FullName };

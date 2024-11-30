@@ -20,4 +20,4 @@ function Region({ pokemon, region, setRegion }) {
 	return <>{regiones[region?.version_group?.name]}</>;
 }
 
-export default Region;
+export { Region };

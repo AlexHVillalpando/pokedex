@@ -6,10 +6,7 @@ import About from '../components/home/About';
 
 import { FaWeightHanging } from 'react-icons/fa';
 import { TfiRulerAlt2 } from 'react-icons/tfi';
-import Region from '../components/details/Region';
-import FullName from '../components/details/FullName';
-import Entry from '../components/details/Entry';
-import Genus from '../components/details/Genus';
+import { Entry, FullName, Genus, Region } from '../components/details/index.js';
 import { HiMiniSparkles } from 'react-icons/hi2';
 
 import { regiones } from '../utils/helpersRegions.js';

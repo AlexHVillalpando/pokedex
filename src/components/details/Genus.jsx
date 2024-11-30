@@ -35,4 +35,4 @@ function Genus({ pokemon }) {
 	return <>{pokegen[0]}</>;
 }
 
-export default Genus;
+export { Genus };

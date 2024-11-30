@@ -30,4 +30,4 @@ function Entry({ pokemon }) {
 	return <>{entry}</>;
 }
 
-export default Entry;
+export { Entry };
