@@ -2,7 +2,6 @@ import { Fragment, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
 import { tipos } from '../../utils/helpersTypes';
-import Error from './Error';
 
 function PokemonCard({ url }) {
 	const [pokemon, setPokemon, loading, error] = useFetch();
@@ -22,7 +21,7 @@ function PokemonCard({ url }) {
 	return (
 		<>
 			{error ? (
-				<Error />
+				<></>
 			) : (
 				<>
 					<Link className="poke" to={`/pokedex/${pokemon?.name}`}>

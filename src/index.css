@@ -407,7 +407,7 @@ body {
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	width: 75%;
+	width: 60%;
 	height: 100%;
 }
 
@@ -651,8 +651,6 @@ body {
 }
 
 .details__card-header-num {
-	border: 1px solid rgba(255, 255, 255, 0.404);
-	border-radius: 0.5em;
 	font-size: small;
 	font-weight: 300;
 	display: inherit;
@@ -735,6 +733,7 @@ body {
 	justify-content: space-evenly;
 	align-items: center;
 	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 .details__card-rightbar {
