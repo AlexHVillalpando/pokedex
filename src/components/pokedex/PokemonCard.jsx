@@ -20,8 +20,12 @@ function PokemonCard({ url }) {
 
 	return (
 		<>
-			{error ? (
-				<></>
+			{loading ? (
+				<>
+					<div className="loader__container">
+						<img className="loader" src="/loading.gif" alt="loading" />
+					</div>
+				</>
 			) : (
 				<>
 					<Link className="poke" to={`/pokedex/${pokemon?.name}`}>

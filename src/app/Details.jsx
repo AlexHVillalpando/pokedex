@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { useEffect, useState } from 'react';
-import { tipos } from '../utils/helpersTypes';
 import { useNameContext } from '../contexts/nameContext';
 import About from '../components/home/About';
 
@@ -14,6 +13,7 @@ import Genus from '../components/details/Genus';
 import { HiMiniSparkles } from 'react-icons/hi2';
 
 import { regiones } from '../utils/helpersRegions.js';
+import { tipos } from '../utils/helpersTypes';
 
 import {
 	kanto,
@@ -27,7 +27,7 @@ import {
 	hisui,
 	paldea,
 	noroteo,
-} from '../../public/backgrounds/index.js';
+} from '../assets/backgrounds/index.js';
 
 function Details() {
 	const params = useParams();
@@ -71,7 +71,7 @@ function Details() {
 		<div
 			className="details__component"
 			style={{
-				backgroundImage: `url(../..${
+				backgroundImage: `url(${
 					backgrounds[regiones[region?.version_group?.name]]
 				})`,
 			}}
