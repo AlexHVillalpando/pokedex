@@ -5,7 +5,14 @@ import About from '../components/home/About';
 
 import { FaWeightHanging } from 'react-icons/fa';
 import { TfiRulerAlt2 } from 'react-icons/tfi';
-import { Entry, FullName, Genus, Region } from '../components/details/index.js';
+import {
+	Entry,
+	FullName,
+	Genus,
+	Region,
+	Ability,
+	Sprite,
+} from '../components/details/index.js';
 import { HiMiniSparkles } from 'react-icons/hi2';
 import { CgGenderMale } from 'react-icons/cg';
 import { CgGenderFemale } from 'react-icons/cg';
@@ -145,104 +152,15 @@ function Details() {
 													)}
 												</button>
 											</>
-										) : (
-											<></>
-										)}
+										) : null}
 									</div>
 
-									<div className="details__card-image-sprite">
-										{isFemale ? (
-											isShiny ? (
-												<>
-													{pokemon?.sprites?.other?.showdown
-														?.front_shiny_female ? (
-														<button onClick={cryhandler} className="cry-btn">
-															<img
-																src={
-																	pokemon?.sprites?.other?.showdown
-																		?.front_shiny_female
-																}
-																alt={pokemon?.name}
-															/>
-														</button>
-													) : (
-														<button onClick={cryhandler} className="cry-btn">
-															<img
-																src={
-																	pokemon?.sprites?.other?.home
-																		?.front_shiny_female
-																}
-																alt={pokemon?.name}
-															/>
-														</button>
-													)}
-												</>
-											) : (
-												<>
-													{pokemon?.sprites?.other?.showdown?.front_female ? (
-														<button onClick={cryhandler} className="cry-btn">
-															<img
-																src={
-																	pokemon?.sprites?.other?.showdown
-																		?.front_female
-																}
-																alt={pokemon?.name}
-															/>
-														</button>
-													) : (
-														<button onClick={cryhandler} className="cry-btn">
-															<img
-																src={
-																	pokemon?.sprites?.other?.home?.front_female
-																}
-																alt={pokemon?.name}
-															/>
-														</button>
-													)}
-												</>
-											)
-										) : isShiny ? (
-											<>
-												{pokemon?.sprites?.other?.showdown?.front_shiny ? (
-													<button onClick={cryhandler} className="cry-btn">
-														<img
-															src={
-																pokemon?.sprites?.other?.showdown?.front_shiny
-															}
-															alt={pokemon?.name}
-														/>
-													</button>
-												) : (
-													<button onClick={cryhandler} className="cry-btn">
-														<img
-															src={pokemon?.sprites?.other?.home?.front_shiny}
-															alt={pokemon?.name}
-														/>
-													</button>
-												)}
-											</>
-										) : (
-											<>
-												{pokemon?.sprites?.other?.showdown?.front_default ? (
-													<button onClick={cryhandler} className="cry-btn">
-														<img
-															src={
-																pokemon?.sprites?.other?.showdown?.front_default
-															}
-															alt={pokemon?.name}
-														/>
-													</button>
-												) : (
-													<button onClick={cryhandler} className="cry-btn">
-														<img
-															src={pokemon?.sprites?.other?.home?.front_default}
-															alt={pokemon?.name}
-														/>
-													</button>
-												)}
-											</>
-										)}
-									</div>
+									<Sprite
+										pokemon={pokemon}
+										cryhandler={cryhandler}
+										isFemale={isFemale}
+										isShiny={isShiny}
+									/>
 								</div>
 							</div>
 							<div className="details__card-rightbar">
@@ -271,12 +189,7 @@ function Details() {
 									<h3 className="abilities-title">Habilidades</h3>
 									<div className="details__card-abilities">
 										{pokemon?.abilities?.map((data) => (
-											<span
-												className="details__card-ability"
-												key={data?.ability?.name}
-											>
-												{data?.ability?.name}
-											</span>
+											<Ability key={data?.ability?.name} data={data?.ability} />
 										))}
 									</div>
 								</div>

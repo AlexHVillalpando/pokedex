@@ -711,6 +711,14 @@ body {
 	cursor: pointer;
 }
 
+.ability-btn {
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff00;
+	border: transparent;
+	cursor: pointer;
+}
+
 .details__card-image-sprite {
 	height: auto;
 }
