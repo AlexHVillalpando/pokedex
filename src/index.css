@@ -612,7 +612,7 @@ body {
 .details__container {
 	display: grid;
 	place-content: center;
-	height: 100dvh;
+	max-height: 100dvh;
 }
 
 .details__card {
