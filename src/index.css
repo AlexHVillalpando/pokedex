@@ -705,6 +705,12 @@ body {
 	height: 100%;
 }
 
+.cry-btn {
+	background-color: rgba(0, 0, 0, 0);
+	border: transparent;
+	cursor: pointer;
+}
+
 .details__card-image-sprite {
 	height: auto;
 }
@@ -753,6 +759,7 @@ body {
 .details__card-rightbar {
 	display: flex;
 	flex-direction: column;
+	max-width: 170px;
 }
 
 .physics {

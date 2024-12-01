@@ -52,6 +52,11 @@ function Details() {
 		setIsFemale(!isFemale);
 	};
 
+	const cryhandler = () => {
+		let audio = new Audio(`${pokemon?.cries?.latest}`);
+		audio.play();
+	};
+
 	const types = pokemon?.types?.map((type) => type?.type?.name);
 
 	const pokenum = pokemon?.species?.url
@@ -151,68 +156,89 @@ function Details() {
 												<>
 													{pokemon?.sprites?.other?.showdown
 														?.front_shiny_female ? (
-														<img
-															src={
-																pokemon?.sprites?.other?.showdown
-																	?.front_shiny_female
-															}
-															alt={pokemon?.name}
-														/>
+														<button onClick={cryhandler} className="cry-btn">
+															<img
+																src={
+																	pokemon?.sprites?.other?.showdown
+																		?.front_shiny_female
+																}
+																alt={pokemon?.name}
+															/>
+														</button>
 													) : (
-														<img
-															src={
-																pokemon?.sprites?.other?.home
-																	?.front_shiny_female
-															}
-															alt={pokemon?.name}
-														/>
+														<button onClick={cryhandler} className="cry-btn">
+															<img
+																src={
+																	pokemon?.sprites?.other?.home
+																		?.front_shiny_female
+																}
+																alt={pokemon?.name}
+															/>
+														</button>
 													)}
 												</>
 											) : (
 												<>
 													{pokemon?.sprites?.other?.showdown?.front_female ? (
-														<img
-															src={
-																pokemon?.sprites?.other?.showdown?.front_female
-															}
-															alt={pokemon?.name}
-														/>
+														<button onClick={cryhandler} className="cry-btn">
+															<img
+																src={
+																	pokemon?.sprites?.other?.showdown
+																		?.front_female
+																}
+																alt={pokemon?.name}
+															/>
+														</button>
 													) : (
-														<img
-															src={pokemon?.sprites?.other?.home?.front_female}
-															alt={pokemon?.name}
-														/>
+														<button onClick={cryhandler} className="cry-btn">
+															<img
+																src={
+																	pokemon?.sprites?.other?.home?.front_female
+																}
+																alt={pokemon?.name}
+															/>
+														</button>
 													)}
 												</>
 											)
 										) : isShiny ? (
 											<>
 												{pokemon?.sprites?.other?.showdown?.front_shiny ? (
-													<img
-														src={pokemon?.sprites?.other?.showdown?.front_shiny}
-														alt={pokemon?.name}
-													/>
+													<button onClick={cryhandler} className="cry-btn">
+														<img
+															src={
+																pokemon?.sprites?.other?.showdown?.front_shiny
+															}
+															alt={pokemon?.name}
+														/>
+													</button>
 												) : (
-													<img
-														src={pokemon?.sprites?.other?.home?.front_shiny}
-														alt={pokemon?.name}
-													/>
+													<button onClick={cryhandler} className="cry-btn">
+														<img
+															src={pokemon?.sprites?.other?.home?.front_shiny}
+															alt={pokemon?.name}
+														/>
+													</button>
 												)}
 											</>
 										) : (
 											<>
 												{pokemon?.sprites?.other?.showdown?.front_default ? (
-													<img
-														src={
-															pokemon?.sprites?.other?.showdown?.front_default
-														}
-														alt={pokemon?.name}
-													/>
+													<button onClick={cryhandler} className="cry-btn">
+														<img
+															src={
+																pokemon?.sprites?.other?.showdown?.front_default
+															}
+															alt={pokemon?.name}
+														/>
+													</button>
 												) : (
-													<img
-														src={pokemon?.sprites?.other?.home?.front_default}
-														alt={pokemon?.name}
-													/>
+													<button onClick={cryhandler} className="cry-btn">
+														<img
+															src={pokemon?.sprites?.other?.home?.front_default}
+															alt={pokemon?.name}
+														/>
+													</button>
 												)}
 											</>
 										)}
