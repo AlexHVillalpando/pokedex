@@ -22,8 +22,23 @@ function Entry({ pokemon }) {
 	}, [pokemon]);
 
 	useEffect(() => {
-		if (entries?.flavor_text_entries[0]?.language?.name === 'en') {
-			setEntry(entries.flavor_text_entries[0]?.flavor_text.replaceAll('', ' '));
+		let inteES = [];
+		let inteEN = [];
+		for (let i = 0; i < entries?.flavor_text_entries?.length; i++) {
+			if (entries?.flavor_text_entries[i]?.language?.name === 'es') {
+				inteES.push(entries?.flavor_text_entries[i]?.flavor_text);
+			} else if (entries?.flavor_text_entries[i]?.language?.name === 'en') {
+				inteEN.push(entries?.flavor_text_entries[i]?.flavor_text);
+			}
+		}
+		if (inteES.length !== 0) {
+			setEntry(
+				inteES[Math.floor(Math.random() * inteES.length)]?.replaceAll('', ' '),
+			);
+		} else {
+			setEntry(
+				inteEN[Math.floor(Math.random() * inteEN.length)]?.replaceAll('', ' '),
+			);
 		}
 	}, [entries]);
 
