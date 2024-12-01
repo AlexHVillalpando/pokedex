@@ -612,7 +612,7 @@ body {
 .details__container {
 	display: grid;
 	place-content: center;
-	max-height: 100dvh;
+	height: 93.8dvh; /*mexicanada*/
 }
 
 .details__card {
