@@ -38,6 +38,7 @@ function Pokedex() {
 		if (type) {
 			setIsFiltering(true);
 			setPokemons(`https://pokeapi.co/api/v2/type/${type}`);
+			setPokemonUrl(null);
 		} else {
 			setIsFiltering(false);
 			setPokemons(`https://pokeapi.co/api/v2/pokemon`);
@@ -62,7 +63,7 @@ function Pokedex() {
 				</Link>
 
 				<div className="pokedex__form">
-					<Search handleSearch={handleSearch} loading={loading} error={error} />
+					<Search handleSearch={handleSearch} />
 					<Filters handleTypeFilter={handleTypeFilter} />
 				</div>
 				<About />
@@ -77,53 +78,48 @@ function Pokedex() {
 					<img src="/error.png" alt="error" />
 				</div>
 			) : (
-				<>
-					<div className="pokedex__container">
-						<div className="nav__bar">
-							<button
-								className="nav__bar--btn prev"
-								onClick={onPrev}
-								disabled={!pokemons?.previous}
-							>
-								Anterior
-							</button>
-							<button
-								className="nav__bar--btn next"
-								onClick={onNext}
-								disabled={!pokemons?.next}
-							>
-								Siguiente
-							</button>
-						</div>
-
-						<div className="pokedex__cards">
-							{pokemonUrl ? (
-								<PokemonCard url={pokemonUrl} />
-							) : (
-								<PokemonList
-									pokemons={pokemonsArray}
-									isFiltering={isFiltering}
-								/>
-							)}
-						</div>
-						<div className="nav__bar">
-							<button
-								className="nav__bar--btn prev"
-								onClick={onPrev}
-								disabled={!pokemons?.previous}
-							>
-								Anterior
-							</button>
-							<button
-								className="nav__bar--btn next"
-								onClick={onNext}
-								disabled={!pokemons?.next}
-							>
-								Siguiente
-							</button>
-						</div>
+				<div className="pokedex__container">
+					<div className="nav__bar">
+						<button
+							className="nav__bar--btn prev"
+							onClick={onPrev}
+							disabled={!pokemons?.previous}
+						>
+							Anterior
+						</button>
+						<button
+							className="nav__bar--btn next"
+							onClick={onNext}
+							disabled={!pokemons?.next}
+						>
+							Siguiente
+						</button>
 					</div>
-				</>
+
+					<div className="pokedex__cards">
+						{pokemonUrl ? (
+							<PokemonCard url={pokemonUrl} />
+						) : (
+							<PokemonList pokemons={pokemonsArray} isFiltering={isFiltering} />
+						)}
+					</div>
+					<div className="nav__bar">
+						<button
+							className="nav__bar--btn prev"
+							onClick={onPrev}
+							disabled={!pokemons?.previous}
+						>
+							Anterior
+						</button>
+						<button
+							className="nav__bar--btn next"
+							onClick={onNext}
+							disabled={!pokemons?.next}
+						>
+							Siguiente
+						</button>
+					</div>
+				</div>
 			)}
 		</div>
 	);

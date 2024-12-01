@@ -3,21 +3,21 @@ import { useState } from 'react';
 
 function useFetch() {
 	const [data, setData] = useState(null);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(false);
 
 	const dataFetch = (url) => {
 		setLoading(true);
-		setError(null);
+		setError(false);
 		axios
 			.get(url)
 			.then((res) => setData(res.data))
 			.catch((err) => {
 				if (err.response && err.response.status === 404) {
-					setError('No se ha encontrado');
+					setError(true);
 					console.log(error);
 				} else {
-					setError('Error al cargar los datos');
+					setError(true);
 					console.log(error);
 				}
 			})
