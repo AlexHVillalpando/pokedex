@@ -19,13 +19,13 @@ ChartJS.register(
 	Filler,
 );
 
-function Chart() {
+function Chart({stats}) {
 	const data = {
 		labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
 		datasets: [
 			{
 				label: 'Stats',
-				data: [404, 218, 197, 121, 186, 119],
+				data: [stats[0], stats[1], stats[2], stats[3], stats[4], stats[5]],
 				backgroundColor: '#87c5fecc',
 				borderColor: '#87c5fecc',
 			},
@@ -42,7 +42,7 @@ function Chart() {
 				ticks: { display: false },
 				pointLabels: { color: '#efcb3b' },
 				suggestedMin: 0,
-				suggestedMax: 420,
+				//suggestedMax: 420,
 			},
 		},
 		plugins: { filler: { propagate: true }, legend: { display: false } },
