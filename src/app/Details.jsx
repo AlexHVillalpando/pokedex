@@ -12,6 +12,7 @@ import {
 	Region,
 	Ability,
 	Sprite,
+	Chart,
 } from '../components/details/index.js';
 import { HiMiniSparkles } from 'react-icons/hi2';
 import { CgGenderMale } from 'react-icons/cg';
@@ -201,6 +202,9 @@ function Details() {
 							</div>
 							<div className="details__card-footer-entries">
 								<Entry pokemon={pokemon} />
+							</div>
+							<div className="chart__container">
+								<Chart />
 							</div>
 						</div>
 					</div>
