@@ -25,7 +25,7 @@ function Chart({stats}) {
 		datasets: [
 			{
 				label: 'Stats',
-				data: [stats[0]?.base_stat, stats[1]?.base_stat, stats[2]?.base_stat, stats[3]?.base_stat, stats[4]?.base_stat, stats[5]?.base_stat],
+				data: [stats[0]?.base_stat, stats[1]?.base_stat, stats[2]?.base_stat, stats[5]?.base_stat,stats[4]?.base_stat,stats[3]?.base_stat],
 				backgroundColor: '#87c5fecc',
 				borderColor: '#87c5fecc',
 			},
