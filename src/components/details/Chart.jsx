@@ -1,71 +1,58 @@
-import React, { PureComponent } from 'react';
 import {
-	Radar,
-	RadarChart,
-	PolarGrid,
-	PolarAngleAxis,
-	PolarRadiusAxis,
-	ResponsiveContainer,
-} from 'recharts';
+	Chart as ChartJS,
+	LineElement,
+	PointElement,
+	Tooltip,
+	Legend,
+	RadialLinearScale,
+	Filler,
+} from 'chart.js';
 
-const data = [
-	{
-		subject: 'Math',
-		A: 120,
-		B: 110,
-		fullMark: 150,
-	},
-	{
-		subject: 'Chinese',
-		A: 98,
-		B: 130,
-		fullMark: 150,
-	},
-	{
-		subject: 'English',
-		A: 86,
-		B: 130,
-		fullMark: 150,
-	},
-	{
-		subject: 'Geography',
-		A: 99,
-		B: 100,
-		fullMark: 150,
-	},
-	{
-		subject: 'Physics',
-		A: 85,
-		B: 90,
-		fullMark: 150,
-	},
-	{
-		subject: 'History',
-		A: 65,
-		B: 85,
-		fullMark: 150,
-	},
-];
+import { Radar } from 'react-chartjs-2';
 
-export default class Example extends PureComponent {
-	static demoUrl = 'https://codesandbox.io/p/sandbox/simple-radar-chart-2p5sxm';
+ChartJS.register(
+	LineElement,
+	PointElement,
+	Tooltip,
+	Legend,
+	RadialLinearScale,
+	Filler,
+);
 
-	render() {
-		return (
-			<ResponsiveContainer width="100%" height="100%">
-				<RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-					<PolarGrid />
-					<PolarAngleAxis dataKey="subject" />
-					<PolarRadiusAxis />
-					<Radar
-						name="Mike"
-						dataKey="A"
-						stroke="#8884d8"
-						fill="#8884d8"
-						fillOpacity={0.6}
-					/>
-				</RadarChart>
-			</ResponsiveContainer>
-		);
-	}
+function Chart() {
+	const data = {
+		labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
+		datasets: [
+			{
+				label: 'Stats',
+				data: [404, 218, 197, 121, 186, 119],
+				backgroundColor: '#87c5fecc',
+				borderColor: '#87c5fecc',
+			},
+			{ fill: 'origin' },
+		],
+	};
+
+	const options = {
+		elements: { line: { borderWidth: 1 }, point: { pointStyle: false } },
+		scales: {
+			r: {
+				angleLines: { color: 'gray' },
+				grid: { display: false },
+				ticks: { display: false },
+				pointLabels: { color: '#efcb3b' },
+				suggestedMin: 0,
+				suggestedMax: 420,
+			},
+		},
+		plugins: { filler: { propagate: true }, legend: { display: false } },
+	};
+
+	return (
+		<div className="chart">
+			<Radar data={data} options={options}></Radar>
+		</div>
+	);
 }
+
+export { Chart };
