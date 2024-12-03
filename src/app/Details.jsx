@@ -204,7 +204,7 @@ function Details() {
 								<Entry pokemon={pokemon} />
 							</div>
 							<div className="chart__container">
-								<Chart />
+								<Chart stats={pokemon?.stats} />
 							</div>
 						</div>
 					</div>

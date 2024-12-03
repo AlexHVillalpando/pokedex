@@ -7,6 +7,7 @@ import {
 	RadialLinearScale,
 	Filler,
 } from 'chart.js';
+import { useEffect, useState } from 'react';
 
 import { Radar } from 'react-chartjs-2';
 
@@ -19,19 +20,45 @@ ChartJS.register(
 	Filler,
 );
 
-function Chart() {
-	const data = {
-		labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
-		datasets: [
-			{
-				label: 'Stats',
-				data: [404, 218, 197, 121, 186, 119],
-				backgroundColor: '#87c5fecc',
-				borderColor: '#87c5fecc',
-			},
-			{ fill: 'origin' },
-		],
-	};
+const initialData = {
+	labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
+	datasets: [
+		{
+			label: 'Stats',
+			data: [0, 0, 0, 0, 0, 0],
+			backgroundColor: '#87c5fecc',
+			borderColor: '#87c5fecc',
+		},
+	],
+};
+
+function Chart({ stats }) {
+	const [data, setData] = useState(initialData);
+
+	useEffect(() => {
+		if (stats) {
+			console.log(stats);
+			setData({
+				labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
+				datasets: [
+					{
+						label: 'Stats',
+						data: [
+							stats[0]?.base_stat,
+							stats[1]?.base_stat,
+							stats[2]?.base_stat,
+							stats[5]?.base_stat,
+							stats[4]?.base_stat,
+							stats[3]?.base_stat,
+						],
+						backgroundColor: '#87c5fecc',
+						borderColor: '#87c5fecc',
+					},
+					{ fill: 'origin' },
+				],
+			});
+		}
+	}, [stats]);
 
 	const options = {
 		elements: { line: { borderWidth: 1 }, point: { pointStyle: false } },
@@ -42,7 +69,6 @@ function Chart() {
 				ticks: { display: false },
 				pointLabels: { color: '#efcb3b' },
 				suggestedMin: 0,
-				suggestedMax: 420,
 			},
 		},
 		plugins: { filler: { propagate: true }, legend: { display: false } },
