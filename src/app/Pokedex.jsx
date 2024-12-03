@@ -21,7 +21,11 @@ function Pokedex() {
 	}, []);
 
 	const getPokemons = () => {
-		setPokemons('https://pokeapi.co/api/v2/pokemon');
+		setPokemons(
+			`https://pokeapi.co/api/v2/pokemon/?offset=${
+				Math.floor(Math.random() * 66) * 20
+			}&limit=20`,
+		);
 	};
 
 	const handleSearch = (value) => {
