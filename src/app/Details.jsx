@@ -3,8 +3,6 @@ import { useFetch } from '../hooks/useFetch';
 import { useEffect, useState } from 'react';
 import About from '../components/home/About';
 
-import { FaWeightHanging } from 'react-icons/fa';
-import { TfiRulerAlt2 } from 'react-icons/tfi';
 import {
 	Entry,
 	FullName,
@@ -15,9 +13,12 @@ import {
 	Sprite,
 	Chart,
 } from '../components/details/index.js';
+
 import { HiMiniSparkles } from 'react-icons/hi2';
 import { CgGenderMale } from 'react-icons/cg';
 import { CgGenderFemale } from 'react-icons/cg';
+import { FaWeightHanging } from 'react-icons/fa';
+import { TfiRulerAlt2 } from 'react-icons/tfi';
 
 import { regiones } from '../utils/helpersRegions.js';
 import { tipos } from '../utils/helpersTypes';

@@ -74,6 +74,10 @@ body {
 	color: white;
 }
 
+.home__form--container {
+	display: flex;
+}
+
 .home__title,
 .home__text {
 	margin-bottom: 0.5em;
@@ -87,7 +91,7 @@ body {
 .home__input {
 	background: white;
 	border: 1px solid #ccc;
-	border-radius: 4px 0 0 4px;
+	border-radius: 0.5em 0 0 0.5em;
 	padding: 0.5em 1em;
 	font-style: italic;
 }
@@ -95,6 +99,7 @@ body {
 .home__btn {
 	background-color: rgb(176, 119, 119);
 	border: transparent;
+	border-radius: 0 0.5em 0.5em 0;
 	padding: 0.5em 1em;
 	color: #fff;
 	cursor: pointer;

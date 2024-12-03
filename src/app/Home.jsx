@@ -67,7 +67,7 @@ function Home() {
 						<>
 							<p>Para comenzar, introduce tu nombre</p>
 							<div className="home__inputs">
-								<form onSubmit={setName}>
+								<form onSubmit={setName} className="home__form--container">
 									<input
 										ref={inputRef}
 										type="text"
