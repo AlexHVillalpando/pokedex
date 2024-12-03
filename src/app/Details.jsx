@@ -138,7 +138,7 @@ function Details() {
 									</div>
 
 									<div className="details__card-image-sex">
-										{pokemon?.sprites?.back_female ? (
+										{pokemon?.sprites?.front_female ? (
 											<>
 												<button
 													className="details__card-image-sex-btn"
