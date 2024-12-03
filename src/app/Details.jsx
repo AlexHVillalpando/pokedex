@@ -8,6 +8,7 @@ import { TfiRulerAlt2 } from 'react-icons/tfi';
 import {
 	Entry,
 	FullName,
+	Types,
 	Genus,
 	Region,
 	Ability,
@@ -116,12 +117,8 @@ function Details() {
 							<Region pokemon={pokemon} region={region} setRegion={setRegion} />
 						</div>
 						<div className="details__card-header-type">
-							<div>
-								{types?.map((type) => (
-									<span className="details__card--header-types" key={type}>
-										{tipos[type]}
-									</span>
-								))}
+							<div className="types__container">
+								<Types types={types} tipos={tipos} />
 							</div>
 						</div>
 					</div>

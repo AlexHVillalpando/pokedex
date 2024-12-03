@@ -6,6 +6,7 @@ import {
 	Legend,
 	RadialLinearScale,
 	Filler,
+	Title,
 } from 'chart.js';
 import { useEffect, useState } from 'react';
 
@@ -18,10 +19,11 @@ ChartJS.register(
 	Legend,
 	RadialLinearScale,
 	Filler,
+	Title,
 );
 
 const initialData = {
-	labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
+	labels: ['PS', 'Ataque', 'Defensa', 'Velocidad', 'Def. Esp.', 'Ar. Esp.'],
 	datasets: [
 		{
 			label: 'Stats',
@@ -37,12 +39,18 @@ function Chart({ stats }) {
 
 	useEffect(() => {
 		if (stats) {
-			console.log(stats);
 			setData({
-				labels: ['HP', 'Attack', 'Defense', 'Speed', 'Sp. Def', 'Sp. Atk'],
+				labels: [
+					'PS',
+					'Ataque',
+					'Defensa',
+					'Velocidad',
+					'Def. Esp.',
+					'Ar. Esp.',
+				],
 				datasets: [
 					{
-						label: 'Stats',
+						label: '',
 						data: [
 							stats[0]?.base_stat,
 							stats[1]?.base_stat,
@@ -64,14 +72,21 @@ function Chart({ stats }) {
 		elements: { line: { borderWidth: 1 }, point: { pointStyle: false } },
 		scales: {
 			r: {
-				angleLines: { color: 'gray' },
+				angleLines: { color: 'gray', lineWidth: 2 },
 				grid: { display: false },
 				ticks: { display: false },
-				pointLabels: { color: '#efcb3b' },
+				pointLabels: {
+					color: '#efcb3b',
+					font: { size: 10.5 },
+				},
 				suggestedMin: 0,
 			},
 		},
-		plugins: { filler: { propagate: true }, legend: { display: false } },
+		plugins: {
+			filler: { propagate: true },
+			legend: { display: false },
+			title: { display: true, text: 'Características', color: 'white' },
+		},
 	};
 
 	return (

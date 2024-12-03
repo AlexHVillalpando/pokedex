@@ -5,3 +5,4 @@ export { Region } from './Region';
 export { Ability } from './Ability';
 export { Sprite } from './Sprite';
 export { Chart } from './Chart';
+export { Types } from './Types';

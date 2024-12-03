@@ -659,14 +659,20 @@ body {
 	width: auto;
 	margin: 0 0.2em;
 }
-
+.types__container {
+	display: flex;
+	gap: 0.1em;
+}
 .details__card--header-region {
 	text-transform: capitalize;
 }
 
 .details__card--header-types {
 	margin: 0;
-	padding: 0 0.2em;
+}
+
+.details__card--header-types img {
+	margin-top: 0.4em;
 }
 
 .details__card-footer {
