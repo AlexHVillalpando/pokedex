@@ -49,11 +49,19 @@ function Pokedex() {
 		}
 	};
 
+	const onBegin = () => {
+		setPokemons(`https://pokeapi.co/api/v2/pokemon`);
+	};
+
 	const onNext = () => {
 		setPokemons(pokemons?.next);
 	};
 	const onPrev = () => {
 		setPokemons(pokemons?.previous);
+	};
+
+	const onEnd = () => {
+		setPokemons('https://pokeapi.co/api/v2/pokemon/?offset=1300&limit=20"');
 	};
 
 	const pokemonsArray = isFiltering ? pokemons?.pokemon : pokemons?.results;
@@ -86,17 +94,32 @@ function Pokedex() {
 					<div className="nav__bar">
 						<button
 							className="nav__bar--btn prev"
+							onClick={onBegin}
+							disabled={!pokemons?.previous}
+						>
+							Inicio
+						</button>
+						<button
+							className="nav__bar--btn prev"
 							onClick={onPrev}
 							disabled={!pokemons?.previous}
 						>
 							Anterior
 						</button>
+
 						<button
 							className="nav__bar--btn next"
 							onClick={onNext}
 							disabled={!pokemons?.next}
 						>
 							Siguiente
+						</button>
+						<button
+							className="nav__bar--btn next"
+							onClick={onEnd}
+							disabled={!pokemons?.next}
+						>
+							Final
 						</button>
 					</div>
 
