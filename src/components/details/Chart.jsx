@@ -41,12 +41,12 @@ function Chart({ stats }) {
 		if (stats) {
 			setData({
 				labels: [
-					`PS${stats[0]?.base_stat}`,
-					`Ataque${stats[1]?.base_stat}`,
-					`Defensa${stats[2]?.base_stat}`,
-					`Velocidad${stats[5]?.base_stat}`,
-					`Def. Esp.${stats[4]?.base_stat}`,
-					`Ar. Esp.${stats[3]?.base_stat}`,
+					`PS ${stats[0]?.base_stat}`,
+					`Ataque ${stats[1]?.base_stat}`,
+					`Defensa ${stats[2]?.base_stat}`,
+					`Velocidad ${stats[5]?.base_stat}`,
+					`Def. Esp. ${stats[4]?.base_stat}`,
+					`Ar. Esp. ${stats[3]?.base_stat}`,
 				],
 				datasets: [
 					{

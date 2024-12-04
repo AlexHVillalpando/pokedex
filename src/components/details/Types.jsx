@@ -1,4 +1,5 @@
 import {
+	Bicho,
 	Siniestro,
 	Dragón,
 	Eléctrico,
@@ -19,6 +20,7 @@ import {
 } from '../../assets/img/icons';
 
 const icoTipos = {
+	Bicho: Bicho,
 	Siniestro: Siniestro,
 	Dragón: Dragón,
 	Eléctrico: Eléctrico,
